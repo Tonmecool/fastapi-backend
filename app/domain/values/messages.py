@@ -11,3 +11,6 @@ class Text(BaseValueObject):
     def validate(self):
         if len(self.value) > 255:
             raise TextTooLongException(self.value)
+
+    def as_generic_type(self):
+        return str(self.value)
