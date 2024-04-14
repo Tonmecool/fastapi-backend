@@ -1,4 +1,3 @@
-from typing import Iterable
 from punq import Container
 
 from fastapi import Depends, status
