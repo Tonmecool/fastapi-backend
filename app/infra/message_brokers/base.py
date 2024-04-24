@@ -1,18 +1,25 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-from aiokafka.consumer import AIOKafkaConsumer
-
 
 @dataclass
 class BaseMessageBroker(ABC):
-    # consumer: AIOKafkaConsumer
+    @abstractmethod
+    async def start(self):
+        ...
 
-    # А здесь по хорошему должен быть BaseBroker если вдруг ужалит в жопу почекать Rabbit и можно было гибко свапнуться
+    @abstractmethod
+    async def close(self):
+        ...
+
     @abstractmethod
     async def send_message(self, topic: str, value: bytes):
         ...
 
     @abstractmethod
-    async def consume(self, topic: str):
+    async def start_consuming(self, topic: str):
+        ...
+
+    @abstractmethod
+    async def stop_consuming(self):
         ...

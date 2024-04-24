@@ -78,7 +78,7 @@ async def create_message_handler(
         status.HTTP_400_BAD_REQUEST: {'model': ErrorSchema},
     }
 )
-async def get_chat_with_messages_handler(
+async def get_chat_handler(
     chat_oid: str, 
     container: Container = Depends(init_container)
 ) -> ChatDetailSchema:
