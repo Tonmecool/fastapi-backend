@@ -26,11 +26,14 @@ async def messages_endpoint(
         topic=config.new_messages_received_topic.format(chat_oid=chat_oid),
     )
 
-    while True:
-        try:
-            await websocket.send_json(await message_broker.consume())
-        finally:
-            break
+    try:
+        async for message, key in await message_broker.start_consuming(
+            topic=config.new_messages_received_topic.format(chat_oid=chat_oid),
+        ):
+            await websocket.send_json(message)
+            await websocket.send(key)
+    finally:
+        await message_broker.stop_consuming()
 
     await message_broker.stop_consuming()
     await websocket.close()
