@@ -4,6 +4,7 @@ from fastapi.routing import APIRouter
 from fastapi.websockets import WebSocket
 from punq import Container
 
+from application.api.common.websockets.managers import BaseConnectionManager
 from infra.message_brokers.base import BaseMessageBroker
 from logic.init import init_container
 from settings.config import Config
@@ -18,21 +19,20 @@ async def messages_endpoint(
     websocket: WebSocket,
     container: Container = Depends(init_container),
 ):
-    await websocket.accept()
     config: Config = container.resolve(Config)
+    connection_manager: BaseConnectionManager = container.resolve(BaseConnectionManager)
+
+    await connection_manager.accept_connection(websocket=websocket, key=chat_oid)
 
     message_broker: BaseMessageBroker = container.resolve(BaseMessageBroker)
-    await message_broker.start_consuming(
-        topic=config.new_messages_received_topic.format(chat_oid=chat_oid),
-    )
 
     try:
-        async for message, key in await message_broker.start_consuming(
-            topic=config.new_messages_received_topic.format(chat_oid=chat_oid),
+        async for message in message_broker.start_consuming(
+            topic=config.new_messages_received_topic,
         ):
-            await websocket.send_json(message)
-            await websocket.send(key)
+            await connection_manager.send_all(key=chat_oid, json_message=message)
     finally:
+        await connection_manager.remove_connection(websocket=websocket, key=chat_oid)
         await message_broker.stop_consuming()
 
     await message_broker.stop_consuming()
