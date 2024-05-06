@@ -31,8 +31,8 @@ class KafkaMessageBroker(BaseMessageBroker):
         self.consumer.unsubscribe()
 
     async def close(self):
-        await self.producer.stop()
         await self.consumer.stop()
+        await self.producer.stop()
     
     async def start(self):
         await self.producer.start()
