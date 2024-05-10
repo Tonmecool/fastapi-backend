@@ -1,15 +1,15 @@
 from typing import (
-    Any, 
-    Mapping
+    Any,
+    Mapping,
 )
 
 from domain.entities.messages import (
-    Chat, 
-    Message
+    Chat,
+    Message,
 )
 from domain.values.messages import (
-    Text, 
-    Title
+    Text,
+    Title,
 )
 
 

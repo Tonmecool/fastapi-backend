@@ -1,6 +1,6 @@
 from dataclasses import (
-    dataclass, 
-    field
+    dataclass,
+    field,
 )
 
 from domain.entities.messages import Chat

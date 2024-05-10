@@ -1,11 +1,11 @@
 from fastapi import (
-    Depends, 
-    WebSocketDisconnect
+    Depends,
+    WebSocketDisconnect,
 )
-from punq import Container
-
-from fastapi.websockets import WebSocket
 from fastapi.routing import APIRouter
+from fastapi.websockets import WebSocket
+
+from punq import Container
 
 from infra.websockets.managers import BaseConnectionManager
 from logic.init import init_container

@@ -1,13 +1,13 @@
 from abc import (
-    ABC, 
-    abstractmethod
+    ABC,
+    abstractmethod,
 )
 from dataclasses import dataclass
 from typing import Iterable
 
 from domain.entities.messages import (
-    Chat, 
-    Message
+    Chat,
+    Message,
 )
 from infra.repositories.filters.messages import GetMessagesFilters
 

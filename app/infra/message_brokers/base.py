@@ -1,6 +1,6 @@
 from abc import (
-    ABC, 
-    abstractmethod
+    ABC,
+    abstractmethod,
 )
 from dataclasses import dataclass
 from typing import AsyncIterator

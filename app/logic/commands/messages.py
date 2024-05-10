@@ -1,24 +1,24 @@
 from dataclasses import dataclass
 
 from domain.entities.messages import (
-    Chat, 
-    Message
+    Chat,
+    Message,
 )
 from domain.values.messages import (
-    Text, 
-    Title
+    Text,
+    Title,
 )
 from infra.repositories.messages.base import (
-    BaseChatsRepository, 
-    BaseMessagesRepository
+    BaseChatsRepository,
+    BaseMessagesRepository,
 )
 from logic.commands.base import (
     BaseCommand,
-    CommandHandler
+    CommandHandler,
 )
 from logic.exceptions.messages import (
-    ChatNotFoundException, 
-    ChatWithThatTitleAlreadyExistException
+    ChatNotFoundException,
+    ChatWithThatTitleAlreadyExistException,
 )
 
 

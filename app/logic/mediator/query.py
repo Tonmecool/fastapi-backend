@@ -1,17 +1,17 @@
 from abc import (
-    ABC, 
-    abstractmethod
+    ABC,
+    abstractmethod,
 )
 from dataclasses import (
-    dataclass, 
-    field
+    dataclass,
+    field,
 )
 
 from logic.queries.base import (
-    QR, 
-    QT, 
-    BaseQuery, 
-    BaseQueryHandler
+    BaseQuery,
+    BaseQueryHandler,
+    QR,
+    QT,
 )
 
 

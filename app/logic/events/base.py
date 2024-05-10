@@ -1,12 +1,12 @@
 from abc import (
-    ABC, 
-    abstractmethod
+    ABC,
+    abstractmethod,
 )
 from dataclasses import dataclass
 from typing import (
-    Any, 
-    Generic, 
-    TypeVar
+    Any,
+    Generic,
+    TypeVar,
 )
 
 from domain.events.base import BaseEvent

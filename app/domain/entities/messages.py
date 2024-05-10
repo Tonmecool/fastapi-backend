@@ -1,16 +1,16 @@
 from dataclasses import (
-    dataclass, 
-    field
+    dataclass,
+    field,
 )
 
 from domain.entities.base import BaseEntity
 from domain.events.messages import (
-    NewChatCreatedEvent, 
-    NewMessageReceivedEvent
+    NewChatCreatedEvent,
+    NewMessageReceivedEvent,
 )
 from domain.values.messages import (
-    Text, 
-    Title
+    Text,
+    Title,
 )
 
 

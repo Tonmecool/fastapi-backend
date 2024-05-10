@@ -1,8 +1,8 @@
 from abc import ABC
 from copy import copy
 from dataclasses import (
-    dataclass, 
-    field
+    dataclass,
+    field,
 )
 from datetime import datetime
 from uuid import uuid4

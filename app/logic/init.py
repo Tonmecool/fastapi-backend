@@ -1,54 +1,54 @@
 from functools import lru_cache
 from uuid import uuid4
+
 from aiojobs import Scheduler
 from aiokafka import (
-    AIOKafkaConsumer, 
-    AIOKafkaProducer
+    AIOKafkaConsumer,
+    AIOKafkaProducer,
 )
-from punq import (
-    Container, 
-    Scope
-)
-
 from motor.motor_asyncio import AsyncIOMotorClient
+from punq import (
+    Container,
+    Scope,
+)
 
 from domain.events.messages import (
-    NewChatCreatedEvent, 
-    NewMessageReceivedEvent
+    NewChatCreatedEvent,
+    NewMessageReceivedEvent,
 )
-from logic.events.messages import NewMessageReceivedFromBrokerEvent
 from infra.message_brokers.base import BaseMessageBroker
 from infra.message_brokers.kafka import KafkaMessageBroker
 from infra.repositories.messages.base import (
     BaseChatsRepository,
-    BaseMessagesRepository
+    BaseMessagesRepository,
 )
 from infra.repositories.messages.mongo import (
-    MongoDBChatsRepository, 
-    MongoDBMessagesRepository
+    MongoDBChatsRepository,
+    MongoDBMessagesRepository,
 )
 from infra.websockets.managers import (
-    BaseConnectionManager, 
-    ConnectionManager
+    BaseConnectionManager,
+    ConnectionManager,
 )
 from logic.commands.messages import (
-    CreateChatCommand, 
-    CreateChatCommandHandler, 
-    CreateMessageCommand, 
-    CreateMessageCommandHandler
+    CreateChatCommand,
+    CreateChatCommandHandler,
+    CreateMessageCommand,
+    CreateMessageCommandHandler,
 )
 from logic.events.messages import (
-    NewChatCreatedEventHandler, 
-    NewMessageReceivedEventHandler, 
-    NewMessageReceivedFromBrokerEventHandler
+    NewChatCreatedEventHandler,
+    NewMessageReceivedEventHandler,
+    NewMessageReceivedFromBrokerEvent,
+    NewMessageReceivedFromBrokerEventHandler,
 )
 from logic.mediator.base import Mediator
 from logic.mediator.event import EventMediator
 from logic.queries.messages import (
-    GetChatDetailQuery, 
-    GetChatDetailQueryHandler, 
-    GetMessagesQuery, 
-    GetMessagesQueryHandler
+    GetChatDetailQuery,
+    GetChatDetailQueryHandler,
+    GetMessagesQuery,
+    GetMessagesQueryHandler,
 )
 from settings.config import Config
 

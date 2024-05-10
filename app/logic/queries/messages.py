@@ -2,18 +2,18 @@ from dataclasses import dataclass
 from typing import Iterable
 
 from domain.entities.messages import (
-    Chat, 
-    Message
+    Chat,
+    Message,
 )
 from infra.repositories.filters.messages import GetMessagesFilters
 from infra.repositories.messages.base import (
-    BaseChatsRepository, 
-    BaseMessagesRepository
+    BaseChatsRepository,
+    BaseMessagesRepository,
 )
 from logic.exceptions.messages import ChatNotFoundException
 from logic.queries.base import (
-    BaseQuery, 
-    BaseQueryHandler
+    BaseQuery,
+    BaseQueryHandler,
 )
 
 

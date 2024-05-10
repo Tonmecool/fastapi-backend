@@ -1,8 +1,12 @@
 from datetime import datetime
+
 from pydantic import BaseModel
 
 from application.api.schemas import BaseQueryResponseSchema
-from domain.entities.messages import Chat, Message
+from domain.entities.messages import (
+    Chat,
+    Message,
+)
 
 
 class CreateChatRequestSchema(BaseModel):

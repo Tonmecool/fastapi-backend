@@ -1,19 +1,19 @@
 from abc import (
     ABC,
-    abstractmethod
+    abstractmethod,
 )
 from collections import defaultdict
 from collections.abc import Iterable
 from dataclasses import (
-    dataclass, 
-    field
+    dataclass,
+    field,
 )
 
 from domain.events.base import BaseEvent
 from logic.events.base import (
-    ER, 
-    ET, 
-    EventHandler
+    ER,
+    ET,
+    EventHandler,
 )
 
 

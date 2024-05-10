@@ -3,11 +3,13 @@ from typing import ClassVar
 
 from domain.events.messages import (
     NewChatCreatedEvent,
-    NewMessageReceivedEvent
+    NewMessageReceivedEvent,
 )
-from logic.events.base import IntegrationEvent
 from infra.message_brokers.converters import convert_event_to_broker_message
-from logic.events.base import EventHandler
+from logic.events.base import (
+    EventHandler,
+    IntegrationEvent,
+)
 
 
 @dataclass

@@ -1,11 +1,11 @@
 from abc import (
-    ABC, 
-    abstractmethod
+    ABC,
+    abstractmethod,
 )
 from collections import defaultdict
 from dataclasses import (
-    dataclass, 
-    field
+    dataclass,
+    field,
 )
 
 from fastapi import WebSocket

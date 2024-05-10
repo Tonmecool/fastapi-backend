@@ -2,31 +2,31 @@ from collections import defaultdict
 from collections.abc import Iterable
 from dataclasses import (
     dataclass,
-    field
+    field,
 )
 
 from domain.events.base import BaseEvent
 from logic.commands.base import (
+    BaseCommand,
+    CommandHandler,
     CR,
     CT,
-    BaseCommand,
-    CommandHandler
 )
 from logic.events.base import (
     ER,
-    ET, 
-    EventHandler
-)
-from logic.queries.base import (
-    QR, 
-    QT, 
-    BaseQuery, 
-    BaseQueryHandler
+    ET,
+    EventHandler,
 )
 from logic.exceptions.mediator import CommandHandlersNotRegisteredException
 from logic.mediator.command import CommandMediator
 from logic.mediator.event import EventMediator
 from logic.mediator.query import QueryMediator
+from logic.queries.base import (
+    BaseQuery,
+    BaseQueryHandler,
+    QR,
+    QT,
+)
 
 
 @dataclass(eq=False)

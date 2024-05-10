@@ -1,13 +1,13 @@
 from abc import ABC
 from dataclasses import (
-    dataclass, 
-    field
+    dataclass,
+    field,
 )
 from datetime import datetime
 from typing import ClassVar
 from uuid import (
-    UUID, 
-    uuid4
+    UUID,
+    uuid4,
 )
 
 
