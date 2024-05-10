@@ -26,6 +26,6 @@ class MemoryChatRepository(BaseChatsRepository):
             ))
         except StopIteration:
             return False
-        
+
     async def add_chat(self, chat: Chat) -> None:
         self._saved_chats.append(chat)

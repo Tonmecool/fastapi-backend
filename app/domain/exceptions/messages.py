@@ -11,6 +11,7 @@ class TitleTooLongException(ApplicationException):
     def message(self):
         return f'Text too long: "{self.text[:255]}..."'
 
+
 @dataclass(eq=False)
 class EmptyTextException(ApplicationException):
     @property

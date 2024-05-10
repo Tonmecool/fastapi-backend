@@ -10,7 +10,7 @@ class EventHandlersNotRegisteredException(LogicException):
     @property
     def message(self):
         return f'Event handlers not registered: {self.event_type}'
-  
+
 
 @dataclass(eq=False)
 class CommandHandlersNotRegisteredException(LogicException):

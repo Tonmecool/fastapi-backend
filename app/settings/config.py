@@ -10,5 +10,5 @@ class Config(BaseSettings):
 
     new_chats_event_topic: str = Field(default='new-chats-topic')
     new_messages_received_topic: str = Field(default='new-messages')
-    
+
     kafka_url: str = Field(alias='KAFKA_URL')
