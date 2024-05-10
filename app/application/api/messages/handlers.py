@@ -1,17 +1,33 @@
 from punq import Container
 
-from fastapi import Depends, status
+from fastapi import (
+    Depends, 
+    status
+)
 from fastapi.exceptions import HTTPException
 from fastapi.routing import APIRouter
 
 from application.api.messages.filters import GetMessagesFilters
-from application.api.messages.schemas import ChatDetailSchema, CreateChatRequestSchema, CreateChatResponseSchema, CreateMessageResponseSchema, CreateMessageSchema, GetMessagesQueryResponseSchema, MessageDetailSchema
+from application.api.messages.schemas import (
+    ChatDetailSchema, CreateChatRequestSchema, 
+    CreateChatResponseSchema, 
+    CreateMessageResponseSchema, 
+    CreateMessageSchema, 
+    GetMessagesQueryResponseSchema, 
+    MessageDetailSchema
+)
 from application.api.schemas import ErrorSchema
 from domain.exceptions.base import ApplicationException
-from logic.commands.messages import CreateChatCommand, CreateMessageCommand
+from logic.commands.messages import (
+    CreateChatCommand, 
+    CreateMessageCommand
+)
 from logic.init import init_container
 from logic.mediator.base import Mediator
-from logic.queries.messages import GetChatDetailQuery, GetMessagesQuery
+from logic.queries.messages import (
+    GetChatDetailQuery, 
+    GetMessagesQuery
+)
 
 
 router = APIRouter(tags=['Chat'])

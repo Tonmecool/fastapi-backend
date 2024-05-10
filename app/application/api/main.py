@@ -1,4 +1,3 @@
-import asyncio
 from contextlib import asynccontextmanager
 
 from aiojobs import Scheduler
@@ -6,7 +5,11 @@ from punq import Container
 
 from fastapi import FastAPI
 
-from application.api.lifespan import close_message_broker, init_message_broker, consume_in_background
+from application.api.lifespan import (
+    close_message_broker, 
+    init_message_broker, 
+    consume_in_background
+)
 from application.api.messages.handlers import router as message_router
 from application.api.messages.websockets.messages import router as message_ws_router
 from logic.init import init_container

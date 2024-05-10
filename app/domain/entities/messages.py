@@ -1,8 +1,17 @@
-from dataclasses import dataclass, field
+from dataclasses import (
+    dataclass, 
+    field
+)
 
 from domain.entities.base import BaseEntity
-from domain.events.messages import NewChatCreatedEvent, NewMessageReceivedEvent
-from domain.values.messages import Text, Title
+from domain.events.messages import (
+    NewChatCreatedEvent, 
+    NewMessageReceivedEvent
+)
+from domain.values.messages import (
+    Text, 
+    Title
+)
 
 
 @dataclass(eq=False)

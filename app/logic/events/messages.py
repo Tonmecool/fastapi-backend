@@ -1,9 +1,12 @@
 from dataclasses import dataclass
 from typing import ClassVar
 
-from domain.events.messages import NewChatCreatedEvent, NewMessageReceivedEvent
+from domain.events.messages import (
+    NewChatCreatedEvent,
+    NewMessageReceivedEvent
+)
 from logic.events.base import IntegrationEvent
-from infra.message_brokers.converters import convert_event_to_broker_message, convert_event_to_json
+from infra.message_brokers.converters import convert_event_to_broker_message
 from logic.events.base import EventHandler
 
 

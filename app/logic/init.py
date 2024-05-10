@@ -1,25 +1,58 @@
-from functools import lru_cache, partial
+from functools import lru_cache
 from uuid import uuid4
 from aiojobs import Scheduler
-from aiokafka import AIOKafkaConsumer, AIOKafkaProducer
-from punq import Container, Scope
+from aiokafka import (
+    AIOKafkaConsumer, 
+    AIOKafkaProducer
+)
+from punq import (
+    Container, 
+    Scope
+)
 
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from domain.events.messages import NewChatCreatedEvent, NewMessageReceivedEvent
+from domain.events.messages import (
+    NewChatCreatedEvent, 
+    NewMessageReceivedEvent
+)
 from logic.events.messages import NewMessageReceivedFromBrokerEvent
 from infra.message_brokers.base import BaseMessageBroker
 from infra.message_brokers.kafka import KafkaMessageBroker
-from infra.repositories.messages.base import BaseChatsRepository, BaseMessagesRepository
-from infra.repositories.messages.mongo import MongoDBChatsRepository, MongoDBMessagesRepository
-from infra.websockets.managers import BaseConnectionManager, ConnectionManager
-from logic.commands.messages import CreateChatCommand, CreateChatCommandHandler, CreateMessageCommand, CreateMessageCommandHandler
-from logic.events.messages import NewChatCreatedEventHandler, NewMessageReceivedEventHandler, \
+from infra.repositories.messages.base import (
+    BaseChatsRepository,
+    BaseMessagesRepository
+)
+from infra.repositories.messages.mongo import (
+    MongoDBChatsRepository, 
+    MongoDBMessagesRepository
+)
+from infra.websockets.managers import (
+    BaseConnectionManager, 
+    ConnectionManager
+)
+from logic.commands.messages import (
+    CreateChatCommand, 
+    CreateChatCommandHandler, 
+    CreateMessageCommand, 
+    CreateMessageCommandHandler
+)
+from logic.events.messages import (
+    NewChatCreatedEventHandler, 
+    NewMessageReceivedEventHandler, 
     NewMessageReceivedFromBrokerEventHandler
+)
 from logic.mediator.base import Mediator
 from logic.mediator.event import EventMediator
-from logic.queries.messages import GetChatDetailQuery, GetChatDetailQueryHandler, GetMessagesQuery, GetMessagesQueryHandler
+from logic.queries.messages import (
+    GetChatDetailQuery, 
+    GetChatDetailQueryHandler, 
+    GetMessagesQuery, 
+    GetMessagesQueryHandler
+)
 from settings.config import Config
+
+
 @lru_cache(1)
 def init_container() -> Container:
     return _init_container()

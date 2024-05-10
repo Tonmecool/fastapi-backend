@@ -1,6 +1,9 @@
 from dataclasses import dataclass
 
-from domain.exceptions.messages import EmptyTextException, TitleTooLongException
+from domain.exceptions.messages import (
+    EmptyTextException, 
+    TitleTooLongException
+)
 from domain.values.base import BaseValueObject
 
 

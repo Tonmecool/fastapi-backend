@@ -1,6 +1,13 @@
-from abc import ABC, abstractmethod
+from abc import (
+    ABC, 
+    abstractmethod
+)
 from dataclasses import dataclass
-from typing import Any, Generic, TypeVar
+from typing import (
+    Any, 
+    Generic, 
+    TypeVar
+)
 
 from domain.events.base import BaseEvent
 from infra.message_brokers.base import BaseMessageBroker

@@ -1,4 +1,7 @@
-from fastapi import Depends, WebSocketDisconnect
+from fastapi import (
+    Depends, 
+    WebSocketDisconnect
+)
 from punq import Container
 
 from fastapi.websockets import WebSocket
