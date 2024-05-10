@@ -56,8 +56,6 @@ async def create_chat_handler(
 
     return CreateChatResponseSchema.from_entity(chat)
 
-
-
 @router.post(
     '/{chat_oid}/messages', 
     status_code=status.HTTP_201_CREATED,
