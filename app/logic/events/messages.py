@@ -1,6 +1,8 @@
 from dataclasses import dataclass
+from typing import ClassVar
 
-from domain.events.messages import NewChatCreatedEvent, NewMessageReceivedEvent, NewMessageReceivedFromBrokerEvent
+from domain.events.messages import NewChatCreatedEvent, NewMessageReceivedEvent
+from logic.events.base import IntegrationEvent
 from infra.message_brokers.converters import convert_event_to_broker_message, convert_event_to_json
 from logic.events.base import EventHandler
 
@@ -23,6 +25,15 @@ class NewMessageReceivedEventHandler(EventHandler[NewMessageReceivedEvent, None]
             value=convert_event_to_broker_message(event=event),
             key=event.chat_oid.encode(),
         )
+
+
+@dataclass
+class NewMessageReceivedFromBrokerEvent(IntegrationEvent):
+    event_title: ClassVar[str] = 'New Message From Broker Received'
+
+    message_text: str
+    message_oid: str
+    chat_oid: str
 
 
 @dataclass

@@ -6,7 +6,8 @@ from punq import Container, Scope
 
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from domain.events.messages import NewChatCreatedEvent, NewMessageReceivedEvent, NewMessageReceivedFromBrokerEvent
+from domain.events.messages import NewChatCreatedEvent, NewMessageReceivedEvent
+from logic.events.messages import NewMessageReceivedFromBrokerEvent
 from infra.message_brokers.base import BaseMessageBroker
 from infra.message_brokers.kafka import KafkaMessageBroker
 from infra.repositories.messages.base import BaseChatsRepository, BaseMessagesRepository
@@ -19,8 +20,6 @@ from logic.mediator.base import Mediator
 from logic.mediator.event import EventMediator
 from logic.queries.messages import GetChatDetailQuery, GetChatDetailQueryHandler, GetMessagesQuery, GetMessagesQueryHandler
 from settings.config import Config
-
-
 @lru_cache(1)
 def init_container() -> Container:
     return _init_container()

@@ -1,4 +1,4 @@
-from domain.events.messages import NewMessageReceivedFromBrokerEvent
+from logic.events.messages import NewMessageReceivedFromBrokerEvent
 from infra.message_brokers.base import BaseMessageBroker
 
 from logic.init import init_container
