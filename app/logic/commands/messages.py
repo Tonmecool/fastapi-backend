@@ -67,4 +67,3 @@ class CreateMessageCommandHandler(CommandHandler[CreateMessageCommand, Chat]):
         await self._mediator.publish(chat.pull_events())
 
         return message
-    

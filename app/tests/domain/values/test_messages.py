@@ -42,7 +42,7 @@ def test_create_chat_success():
 
 def test_create_chat_title_too_long():
     with pytest.raises(TitleTooLongException):
-        title = Title('a' * 1000)
+        Title('a' * 1000)
 
 
 def test_add_chat_to_message():
@@ -50,7 +50,7 @@ def test_add_chat_to_message():
     message = Message(text=text, chat_oid=uuid4())
 
     title = Title('title')
-    chat = Chat(title=title)  
+    chat = Chat(title=title)
 
     chat.add_message(message)
 
@@ -62,7 +62,7 @@ def test_new_message_events():
     message = Message(text=text, chat_oid=uuid4())
 
     title = Title('title')
-    chat = Chat(title=title)  
+    chat = Chat(title=title)
 
     chat.add_message(message)
     events = chat.pull_events()
