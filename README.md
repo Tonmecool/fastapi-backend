@@ -11,8 +11,8 @@
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your_username/your_repository.git
-   cd your_repository
+   git clone https://github.com/Tonmecool/fastapi-backend.git
+   cd fastapi-backend
 
 2. Install all required packages in `Requirements` section.
 
