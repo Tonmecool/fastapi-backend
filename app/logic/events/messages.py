@@ -59,3 +59,4 @@ class ChatDeletedEventHandler(EventHandler[ChatDeletedEvent, None]):
             value=convert_event_to_broker_message(event=event),
             key=event.chat_oid.encode(),
         )
+        await self.connection_manager.disconnect_all(event.chat_oid)

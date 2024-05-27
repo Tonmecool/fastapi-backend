@@ -30,6 +30,10 @@ class BaseConnectionManager(ABC):
     async def send_all(self, key: str, bytes_: bytes):
         ...
 
+    @abstractmethod
+    async def disconnect_all(self, key: str):
+        ...
+
 
 @dataclass
 class ConnectionManager(BaseConnectionManager):
@@ -43,3 +47,10 @@ class ConnectionManager(BaseConnectionManager):
     async def send_all(self, key: str, bytes_: bytes):
         for websocket in self.connections_map[key]:
             await websocket.send_bytes(bytes_)
+
+    async def disconnect_all(self, key: str):
+        for websocket in self.connections_map[key]:
+            await websocket.send_json({
+                'message': 'Chat has been deleted',
+            })
+            await websocket.close()
