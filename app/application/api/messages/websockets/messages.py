@@ -29,5 +29,4 @@ async def websocket_endpoint(
         while True:
             await websocket.receive_text()
     except WebSocketDisconnect:
-        print("Connection broken")
         await connection_manager.remove_connection(websocket=websocket, key=chat_oid)
