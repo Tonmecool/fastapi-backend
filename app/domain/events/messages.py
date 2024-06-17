@@ -26,3 +26,10 @@ class ChatDeletedEvent(BaseEvent):
     title: ClassVar[str] = 'Chat has been deleted'
 
     chat_oid: str
+
+
+@dataclass
+class ListenerAddedEvent(BaseEvent):
+    event_title: ClassVar[str] = 'New listener added'
+
+    listener_oid: str
