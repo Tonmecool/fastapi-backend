@@ -16,6 +16,10 @@
 
 2. Install all required packages in `Requirements` section.
 
+3. **Create network for all services**
+   ```bash
+   docker network create --driver bridge --attachable backend
+
 
 ### Implemented Commands
 
@@ -27,3 +31,7 @@
 * `make test` - run tests
 * `make storages` - up database infra
 * `make storages-down` - down database infra
+
+## Go to telegram bot microservice
+
+[telegram-bot-for-fastapi-backend](https://github.com/Tonmecool/telegram-bot-for-fastapi-backend) (docs in work)
